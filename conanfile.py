@@ -1,6 +1,4 @@
-import os
-
-from conans import ConanFile, tools
+from conans import ConanFile
 
 
 class TurtleConan(ConanFile):
