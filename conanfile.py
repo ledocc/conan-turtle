@@ -25,3 +25,4 @@ class TurtleConan(ConanFile):
 
     def package(self):
         self.copy("*.hpp", src="turtle/include", dst="include")
+        self.copy("LICENSE_1_0.txt", src="turtle", dst="licenses")
