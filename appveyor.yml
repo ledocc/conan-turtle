@@ -7,7 +7,6 @@ environment:
     CONAN_USERNAME: "ledocc"
     CONAN_LOGIN_USERNAME: "ledocc"
     CONAN_CHANNEL: "testing"
-    CONAN_UPLOAD: "https://dl.bintray.com/ledocc/conan-public/ledocc/"
 
     matrix:
         - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
