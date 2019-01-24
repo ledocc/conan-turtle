@@ -7,7 +7,7 @@ class TurtleConan(ConanFile):
     version = "master-"+commit_sha1
     license = "Boost Software License 1.0"
     author = "David Callu ledocc.conan at gmail.com"
-    url = ""
+    url = "https://github.com/ledocc/conan-turtle"
     description = "C++ mock object library for Boost http://turtle.sourceforge.net"
     topics = ("c++", "test", "mock")
     no_copy_source = True
