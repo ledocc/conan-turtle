@@ -2,6 +2,7 @@ from conans import ConanFile
 
 
 class TurtleConan(ConanFile):
+
     commit_sha1 = "1b5d8c8"
     name = "turtle"
     version = "master-"+commit_sha1
@@ -10,6 +11,7 @@ class TurtleConan(ConanFile):
     url = "https://github.com/ledocc/conan-turtle"
     description = "C++ mock object library for Boost http://turtle.sourceforge.net"
     topics = ("c++", "test", "mock")
+    settings = "os", "arch", "compiler", "build_type"
     no_copy_source = True
     requires = "boost/1.69.0@conan/stable" # comma-separated list of requirements
 
