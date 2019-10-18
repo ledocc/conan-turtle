@@ -1,7 +1,6 @@
 
 env:
    global:
-     - CONAN_REFERENCE: "turtle/master-1b5d8c8"
      - CONAN_USERNAME: "ledocc"
      - CONAN_LOGIN_USERNAME: "ledocc"
      - CONAN_CHANNEL: "testing"

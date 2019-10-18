@@ -1,33 +1,28 @@
-from conans import ConanFile
+from conans import ConanFile, tools
 
 
 class TurtleConan(ConanFile):
 
-    commit_sha1 = "1b5d8c8"
     name = "turtle"
-    version = "master-"+commit_sha1
+    version = tools.load("version.txt").rstrip()
     license = "Boost Software License 1.0"
-    author = "David Callu ledocc.conan at gmail.com"
+    author = "David Callu ledocc at gmail.com"
     url = "https://github.com/ledocc/conan-turtle"
-    description = "C++ mock object library for Boost http://turtle.sourceforge.net"
+    description = "C++ mock object library for Boost http://turtle.sourceforge.net and Catch2"
     topics = ("c++", "test", "mock")
     settings = "os", "arch", "compiler", "build_type"
     no_copy_source = True
-    requires = "boost/1.69.0@conan/stable" # comma-separated list of requirements
-
-    # No settings/options are necessary, this is header only
+    exports = ("version.txt")
+    requires = "boost/1.69.0@conan/stable"
 
     def source(self):
-        '''retrieval of the source code here. Remember you can also put the code
-        in the folder and use exports instead of retrieving it with this
-        source() method
-        '''
-        self.run("git clone https://github.com/mat007/turtle.git")
-        self.run("cd turtle && git checkout "+self.commit_sha1)
+        tools.get('https://github.com/mat007/turtle/archive/v{}.tar.gz'.format( self.version ),
+                  sha256='1ea10600a4046286a781c898ed3110d48fdab473f5320dc48cc2775353039b8b')
 
     def package(self):
-        self.copy("*.hpp", src="turtle/include", dst="include")
-        self.copy("LICENSE_1_0.txt", src="turtle", dst="licenses")
+        source_dir = "{}-{}".format(self.name, self.version)
+        self.copy("*.hpp", src="{}/include".format(source_dir), dst="include")
+        self.copy("LICENSE_1_0.txt", src=source_dir, dst="licenses")
 
     def package_id(self):
         self.info.header_only()
